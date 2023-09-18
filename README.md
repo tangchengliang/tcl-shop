@@ -1,8 +1,6 @@
 ## 项目简介
 
-小兔鲜儿项目包含从首页浏览商品，商品详情，微信登录，加入购物车，提交订单，微信支付，订单管理等功能。
-
-当前仓库为小兔鲜儿的**项目模板**。
+本项目为黑马-小兔鲜自己学习记录笔记
 
 ### 技术栈
 
@@ -11,10 +9,6 @@
 - 组件库：[uni-ui](https://uniapp.dcloud.net.cn/component/uniui/uni-ui.html)
 
 ## 资料说明
-
-### 📀 视频学习
-
-[https://www.bilibili.com/video/BV1Bp4y1379L/](https://www.bilibili.com/video/BV1Bp4y1379L/?share_source=copy_web&vd_source=2ac50d29193927b3c8597537dc4bc81d)
 
 ### 📗 接口文档
 
