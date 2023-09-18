@@ -36,18 +36,40 @@ onLoad(() => {
   getHomeHotData()
 })
 
-//
+// 猜你喜欢 组件实例
 const guessRef = ref<XtxGuessInstance>()
 // 滚动触底
 const onScrolltolower = () => {
-  console.log('sss')
   guessRef.value?.getMore()
+}
+
+// 下拉刷新
+const isTriggered = ref(false)
+const onRefresherrefresh = async () => {
+  // 开启动画
+  isTriggered.value = true
+  // 加载数据
+  guessRef.value?.resetData()
+  await Promise.all([
+    getHomeBannerData(),
+    getHomeCategoryData(),
+    getHomeHotData(),
+    guessRef.value?.getMore(),
+  ])
+  // 关闭动画
+  isTriggered.value = false
 }
 </script>
 
 <template>
   <CustomNavbar />
-  <scroll-view scroll-y @scrolltolower="onScrolltolower">
+  <scroll-view
+    scroll-y
+    refresher-enabled
+    :refresher-triggered="isTriggered"
+    @refresherrefresh="onRefresherrefresh"
+    @scrolltolower="onScrolltolower"
+  >
     <XtxSwiper :list="bannerList" />
     <CategoryPanel :list="categoryList" />
     <HotPanel :list="hotList" />
